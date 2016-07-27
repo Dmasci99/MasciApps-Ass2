@@ -10,11 +10,7 @@ namespace MasciApps_Ass2.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
+            ViewBag.Title = "Home";
             return View();
         }
 

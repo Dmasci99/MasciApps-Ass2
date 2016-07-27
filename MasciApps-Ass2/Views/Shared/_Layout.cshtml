@@ -20,7 +20,7 @@
             <nav id="header-nav">
                 <ul class="menu">
                     <li id="home">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Menu", "Index", "Menu")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <div class="clear-float"></div><!--clear-float-->
                 </ul>
@@ -30,12 +30,15 @@
         </div>
     </header>
 
-    <!-- Interior Header -->
-    <div class="interior-header">
-        <div class="container">
-            <h1>@ViewBag.Title</h1>
+    @if (ViewBag.Title != "Home")
+    {
+        <!-- Interior Header -->
+        <div class="interior-header">
+            <div class="container">
+                <h1>@ViewBag.Title</h1>
+            </div>
         </div>
-    </div>
+    }
 
     <!-- Content -->
     @RenderBody()

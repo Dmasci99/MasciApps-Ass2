@@ -5,8 +5,6 @@
 }
 <div class="interior-page" id="menu-page">
     <div class="container">
-        <h2>Index</h2>
-
         <p>
             @Html.ActionLink("Create New", "Create")
         </p>
@@ -37,7 +35,6 @@
             </tr>
 
         @foreach (var item in Model) {
-            @item.Name
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.ItemLabel.Name)
@@ -67,6 +64,7 @@
                 </td>
             </tr>
         }
+
         </table>
     </div>
 </div>

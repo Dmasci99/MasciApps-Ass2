@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -16,20 +15,20 @@ namespace MasciApps_Ass2.Controllers
         private MenuEntities db = new MenuEntities();
 
         // GET: Menu
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            List<Item> items = db.Items.ToList(); 
+            List<Item> items = db.Items.ToList();
             return View(items);
         }
 
         // GET: Menu/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = await db.Items.FindAsync(id);
+            Item item = db.Items.Find(id);
             if (item == null)
             {
                 return HttpNotFound();
@@ -50,12 +49,12 @@ namespace MasciApps_Ass2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ItemId,ItemTypeId,ItemLabelId,Name,Price,ImageUrl,ShortDescription,LongDescription")] Item item)
+        public ActionResult Create([Bind(Include = "ItemId,ItemTypeId,ItemLabelId,Name,Price,ImageUrl,ShortDescription,LongDescription")] Item item)
         {
             if (ModelState.IsValid)
             {
                 db.Items.Add(item);
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -65,13 +64,13 @@ namespace MasciApps_Ass2.Controllers
         }
 
         // GET: Menu/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = await db.Items.FindAsync(id);
+            Item item = db.Items.Find(id);
             if (item == null)
             {
                 return HttpNotFound();
@@ -86,12 +85,12 @@ namespace MasciApps_Ass2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ItemId,ItemTypeId,ItemLabelId,Name,Price,ImageUrl,ShortDescription,LongDescription")] Item item)
+        public ActionResult Edit([Bind(Include = "ItemId,ItemTypeId,ItemLabelId,Name,Price,ImageUrl,ShortDescription,LongDescription")] Item item)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(item).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.ItemLabelId = new SelectList(db.ItemLabels, "ItemLabelId", "Name", item.ItemLabelId);
@@ -100,13 +99,13 @@ namespace MasciApps_Ass2.Controllers
         }
 
         // GET: Menu/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = await db.Items.FindAsync(id);
+            Item item = db.Items.Find(id);
             if (item == null)
             {
                 return HttpNotFound();
@@ -117,11 +116,11 @@ namespace MasciApps_Ass2.Controllers
         // POST: Menu/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Item item = await db.Items.FindAsync(id);
+            Item item = db.Items.Find(id);
             db.Items.Remove(item);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
