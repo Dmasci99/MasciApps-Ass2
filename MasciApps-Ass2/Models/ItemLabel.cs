@@ -5,9 +5,9 @@ using System.Web;
 
 namespace MasciApps_Ass2.Models
 {
-    public class Artist
+    public class ItemLabel
     {
-        public virtual int ArtistId { get; set; }
+        public virtual int ItemLabelId { get; set; }
         public virtual string Name { get; set; }
     }
 }

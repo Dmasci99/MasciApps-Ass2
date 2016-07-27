@@ -11,116 +11,116 @@ using MasciApps_Ass2.Models;
 
 namespace MasciApps_Ass2.Controllers
 {
-    public class StoreManagerController : Controller
+    public class MenuController : Controller
     {
-        private MusicStoreEntities db = new MusicStoreEntities();
+        private MenuEntities db = new MenuEntities();
 
-        // GET: StoreManager
+        // GET: Menu
         public async Task<ActionResult> Index()
         {
-            var albums = db.Albums.Include(a => a.Artist).Include(a => a.Genre);
-            return View(await albums.ToListAsync());
+            List<Item> items = db.Items.ToList(); 
+            return View(items);
         }
 
-        // GET: StoreManager/Details/5
+        // GET: Menu/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = await db.Albums.FindAsync(id);
-            if (album == null)
+            Item item = await db.Items.FindAsync(id);
+            if (item == null)
             {
                 return HttpNotFound();
             }
-            return View(album);
+            return View(item);
         }
 
-        // GET: StoreManager/Create
+        // GET: Menu/Create
         public ActionResult Create()
         {
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name");
-            ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name");
+            ViewBag.ItemLabelId = new SelectList(db.ItemLabels, "ItemLabelId", "Name");
+            ViewBag.ItemTypeId = new SelectList(db.ItemTypes, "ItemTypeId", "Name");
             return View();
         }
 
-        // POST: StoreManager/Create
+        // POST: Menu/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtUrl")] Album album)
+        public async Task<ActionResult> Create([Bind(Include = "ItemId,ItemTypeId,ItemLabelId,Name,Price,ImageUrl,ShortDescription,LongDescription")] Item item)
         {
             if (ModelState.IsValid)
             {
-                db.Albums.Add(album);
+                db.Items.Add(item);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", album.ArtistId);
-            ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name", album.GenreId);
-            return View(album);
+            ViewBag.ItemLabelId = new SelectList(db.ItemLabels, "ItemLabelId", "Name", item.ItemLabelId);
+            ViewBag.ItemTypeId = new SelectList(db.ItemTypes, "ItemTypeId", "Name", item.ItemTypeId);
+            return View(item);
         }
 
-        // GET: StoreManager/Edit/5
+        // GET: Menu/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = await db.Albums.FindAsync(id);
-            if (album == null)
+            Item item = await db.Items.FindAsync(id);
+            if (item == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", album.ArtistId);
-            ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name", album.GenreId);
-            return View(album);
+            ViewBag.ItemLabelId = new SelectList(db.ItemLabels, "ItemLabelId", "Name", item.ItemLabelId);
+            ViewBag.ItemTypeId = new SelectList(db.ItemTypes, "ItemTypeId", "Name", item.ItemTypeId);
+            return View(item);
         }
 
-        // POST: StoreManager/Edit/5
+        // POST: Menu/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtUrl")] Album album)
+        public async Task<ActionResult> Edit([Bind(Include = "ItemId,ItemTypeId,ItemLabelId,Name,Price,ImageUrl,ShortDescription,LongDescription")] Item item)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(album).State = EntityState.Modified;
+                db.Entry(item).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", album.ArtistId);
-            ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name", album.GenreId);
-            return View(album);
+            ViewBag.ItemLabelId = new SelectList(db.ItemLabels, "ItemLabelId", "Name", item.ItemLabelId);
+            ViewBag.ItemTypeId = new SelectList(db.ItemTypes, "ItemTypeId", "Name", item.ItemTypeId);
+            return View(item);
         }
 
-        // GET: StoreManager/Delete/5
+        // GET: Menu/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = await db.Albums.FindAsync(id);
-            if (album == null)
+            Item item = await db.Items.FindAsync(id);
+            if (item == null)
             {
                 return HttpNotFound();
             }
-            return View(album);
+            return View(item);
         }
 
-        // POST: StoreManager/Delete/5
+        // POST: Menu/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Album album = await db.Albums.FindAsync(id);
-            db.Albums.Remove(album);
+            Item item = await db.Items.FindAsync(id);
+            db.Items.Remove(item);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
