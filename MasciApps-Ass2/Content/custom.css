@@ -1386,7 +1386,7 @@ header #moby-button:hover .fa {
 ***********************************/
 #contact-page .left {
   float: left;
-  width: 65%;
+  width: 60%;
 }
 #contact-page .left .map {
   -webkit-box-shadow: 0 0 10px #747474;
@@ -1401,7 +1401,7 @@ header #moby-button:hover .fa {
 }
 #contact-page .right {
   float: right;
-  width: 35%;
+  width: 40%;
 }
 #contact-page .right .info {
   font-size: 16px;
@@ -1426,6 +1426,10 @@ header #moby-button:hover .fa {
   width: 100%;
   height: 2px;
   background: #0f1f4d;
+}
+#contact-page .right .info .social .fa {
+  display: inline-block;
+  padding: 2px 5px;
 }
 #contact-page .right .info .directions {
   color: #000000;
