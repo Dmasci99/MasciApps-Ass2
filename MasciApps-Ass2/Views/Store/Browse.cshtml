@@ -1,0 +1,16 @@
+﻿@using MasciApps_Ass2.Models
+@model Genre
+
+@{
+    ViewBag.Title = "Browse";
+}
+
+<h2>Browsing Genre: @Model.Name</h2>
+<ul>
+    @foreach (Album album in Model.Albums)
+    {
+        //@Html.ActionLink(<LinkText>, <ControllerAction>, <AlbumID>)
+        <li>@Html.ActionLink(album.Title, "Details", new { id = album.AlbumId })</li>
+    }
+</ul>
+
