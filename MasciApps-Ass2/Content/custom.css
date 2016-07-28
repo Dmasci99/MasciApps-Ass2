@@ -143,6 +143,100 @@
   font-weight: bold;
   margin-right: 10px;
 }
+/********************************************************
+*														*
+*	    				HOME PAGE 										
+*   													*
+********************************************************/
+/***********************************									
+*			   Header 				
+***********************************/
+#menu-page {
+  padding: 0;
+}
+#menu-page .items {
+  width: 100%;
+  text-align: center;
+}
+#menu-page .items .row {
+  width: 100%;
+  padding: 40px 0;
+  -webkit-box-shadow: 0 0 10px #747474;
+  -moz-box-shadow: 0 0 10px #747474;
+  -ms-box-shadow: 0 0 10px #747474;
+  -o-box-shadow: 0 0 10px #747474;
+  box-shadow: 0 0 10px #747474;
+}
+#menu-page .items .row h2 {
+  position: relative;
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+#menu-page .items .row h2::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: #5271cc;
+}
+#menu-page .items .row .container {
+  display: inline-block;
+}
+#menu-page .items .row:nth-child(even) {
+  background: #f1f1f1;
+}
+#menu-page .items .row:nth-child(odd) {
+  background: #f6f6f6;
+}
+#menu-page .items .item {
+  position: relative;
+  display: inline-block;
+  width: 30%;
+  margin: 10px 1%;
+  vertical-align: top;
+}
+#menu-page .items .item .image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2px;
+}
+#menu-page .items .item .image img {
+  max-width: 100%;
+}
+#menu-page .items .item .image .label {
+  position: absolute;
+  width: 100px;
+  top: 30px;
+  left: 30px;
+  -webkit-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  -moz-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  -ms-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  -o-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  color: #d4cde5;
+  font-size: 12px;
+  background: #3d4766;
+  padding: 2px 6px;
+}
+#menu-page .items .item .name {
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 20px;
+  padding: 5px 10px;
+}
+#menu-page .items .item .desc {
+  padding: 0 10px;
+}
 /****************************************************************************************************
 *																									*
 *											GLOBAL 										

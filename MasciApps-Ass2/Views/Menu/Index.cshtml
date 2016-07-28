@@ -1,70 +1,77 @@
-﻿@model IEnumerable<MasciApps_Ass2.Models.Item>
+﻿@using MasciApps_Ass2.Models
+@model IEnumerable<Item>
 
 @{
     ViewBag.Title = "Index";
 }
 <div class="interior-page" id="menu-page">
-    <div class="container">
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ItemLabel.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ItemType.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ImageUrl)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ShortDescription)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LongDescription)
-                </th>
-                <th></th>
-            </tr>
+    <div class="items">
+        <div class="row beverages">
+            <h2>Beverages</h2>
+            <div class="container">
+                @foreach (var item in Model.Where(t => t.ItemType.Name == "Beverage"))
+                {
+                    <div class="item beverage">
+                        <div class="image">
+                            <div class="label">@item.ItemLabel.Name</div>
+                            <img src="@item.ImageUrl" alt="@item.Name" title="@item.Name" />
+                        </div>
+                        <div class="name">@item.Name</div>
+                        <div class="desc">@item.ShortDescription</div>
+                    </div>
+                }
+            </div>
+        </div>
 
-        @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ItemLabel.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ItemType.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ImageUrl)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ShortDescription)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LongDescription)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.ItemId }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.ItemId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.ItemId })
-                </td>
-            </tr>
-        }
+        <div class="row appetizers">
+            <h2>Appetizers</h2>
+            <div class="container">
+                @foreach (var item in Model.Where(t => t.ItemType.Name == "Appetizer"))
+                {
+                    <div class="item appetizer">
+                        <div class="image">
+                            <div class="label">@item.ItemLabel.Name</div>
+                            <img src="@item.ImageUrl" alt="@item.Name" title="@item.Name" />
+                        </div>
+                        <div class="name">@item.Name</div>
+                        <div class="desc">@item.ShortDescription</div>
+                    </div>
+                }
+            </div>
+        </div>
 
-        </table>
-    </div>
-</div>
+        <div class="row maincourses">
+            <h2>Main Courses</h2>
+            <div class="container">
+                @foreach (var item in Model.Where(t => t.ItemType.Name == "Main Course"))
+                {
+                    <div class="item maincourse">
+                        <div class="image">
+                            <div class="label">@item.ItemLabel.Name</div>
+                            <img src="@item.ImageUrl" alt="@item.Name" title="@item.Name" />
+                        </div>
+                        <div class="name">@item.Name</div>
+                        <div class="desc">@item.ShortDescription</div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="row desserts">
+            <h2>Desserts</h2>
+            <div class="container">
+                @foreach (var item in Model.Where(t => t.ItemType.Name == "Dessert"))
+                {
+                    <div class="item dessert">
+                        <div class="image">
+                            <div class="label">@item.ItemLabel.Name</div>
+                            <img src="@item.ImageUrl" alt="@item.Name" title="@item.Name" />
+                        </div>
+                        <div class="name">@item.Name</div>
+                        <div class="desc">@item.ShortDescription</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div><!-- items -->
+</div><!-- interior-page -->

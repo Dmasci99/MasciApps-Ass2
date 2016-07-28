@@ -1,0 +1,85 @@
+/********************************************************
+*														*
+*	    				HOME PAGE 										
+*   													*
+********************************************************/
+/***********************************									
+*			   Header 				
+***********************************/
+#menu-page {
+    padding: 0;
+    .items {
+        width: 100%;
+        text-align: center;
+        .row {
+            width: 100%;
+            padding: 40px 0;
+            .box-shadow(0, 0, 10px, @grey);
+            h2 {
+                position: relative;
+                font-size: 28px;
+                text-transform: uppercase;  
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    .translateX;
+                    width: 50px;
+                    height: 2px;
+                    background: @lightBlue;
+                }
+            }
+            .container {
+                display: inline-block;
+            }            
+            &:nth-child(even) {
+                background: @offWhite;
+            }            
+            &:nth-child(odd) {
+                background: lighten(@offWhite, 2%);
+            } 
+        }//.row
+        .item {
+            position: relative;
+            display: inline-block;
+            width: 30%;
+            margin: 10px 1%;
+            vertical-align: top;
+            .image {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                padding: 2px;
+                img {
+                    max-width: 100%;
+                }
+                .label {
+                    position: absolute;
+                    width: 100px;
+                    top: 30px;
+                    left: 30px;
+                    .translateAll(1, -50%, -50%, -45deg);
+                    color: @silver;
+                    font-size: 12px;
+                    background: @blueGrey;
+                    padding: 2px 6px;
+                }
+            }
+            .name {
+                font-weight: bold;
+                font-variant: small-caps;
+                font-size: 20px;
+                padding: 5px 10px;
+            }
+            .desc {
+                padding: 0 10px;
+                p {
+
+                }
+            }
+        }//.item
+    }//.items
+}//#menu-page

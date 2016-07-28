@@ -193,6 +193,14 @@
     <Content Include="Assets\images\dashboard.jpg" />
     <Content Include="Assets\images\home-showcase.png" />
     <Content Include="Assets\images\logo.png" />
+    <Content Include="Assets\images\menu\burger.jpg" />
+    <Content Include="Assets\images\menu\cheesecake.jpg" />
+    <Content Include="Assets\images\menu\curry.jpg" />
+    <Content Include="Assets\images\menu\fajitas.jpg" />
+    <Content Include="Assets\images\menu\margarita.jpg" />
+    <Content Include="Assets\images\menu\messyfish.jpg" />
+    <Content Include="Assets\images\menu\nachos.jpg" />
+    <Content Include="Assets\images\menu\salmon.jpg" />
     <Content Include="Assets\images\placeholder.gif" />
     <Content Include="Assets\images\slide1.jpg" />
     <Content Include="Assets\images\slide2.jpg" />
@@ -212,6 +220,7 @@
     <Content Include="Content\custom.less" />
     <Content Include="Content\partials\moby.less" />
     <Content Include="Content\partials\responsive.less" />
+    <Content Include="Content\partials\menu.less" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-2.2.4.js" />
