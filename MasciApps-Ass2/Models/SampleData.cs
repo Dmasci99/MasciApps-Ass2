@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace MasciApps_Ass2.Models
 {
-    public class SampleData : DropCreateDatabaseIfModelChanges<MenuEntities>
+    public class SampleData : DropCreateDatabaseAlways<MenuEntities>
     {
         protected override void Seed(MenuEntities context)
         {
@@ -15,8 +15,7 @@ namespace MasciApps_Ass2.Models
                 new ItemType { Name = "Appetizer" },
                 new ItemType { Name = "Main Course" },
                 new ItemType { Name = "Dessert" },
-                new ItemType { Name = "Beverage" },
-                new ItemType { Name = "Special" }
+                new ItemType { Name = "Beverage" }
             };
 
             var itemLabels = new List<ItemLabel>
@@ -37,7 +36,7 @@ namespace MasciApps_Ass2.Models
                 new Item { Name = "Maple Mustard Salmon", Price = 19.99M, ImageUrl = "/Assets/images/menu/salmon.jpg", ShortDescription = "Salmon topped with in-house sauce.", LongDescription = "Pan seared Atlantic salmon topped with house-made maple mustard sauce. Served with mashed potatoes and fresh veggies.", ItemType = itemTypes.Single(t => t.Name == "Main Course"), ItemLabel = itemLabels.Single(l => l.Name == "Gluten Free") },
                 new Item { Name = "Curry Bowl", Price = 14.99M, ImageUrl = "/Assets/images/menu/curry.jpg", ShortDescription = "Array of vegetables smothered in a Thai green curry sauce.", LongDescription = "Red peppers and fresh basil in an authentic Thai green curry sauce with Shanghai noodles, steamed broccoli and bok choy. Topped with fresh green onion slivers.", ItemType = itemTypes.Single(t => t.Name == "Main Course"), ItemLabel = itemLabels.Single(l => l.Name == "Vegetarian") },
                 new Item { Name = "White Chocolate Cheesecake", Price = 7.99M, ImageUrl = "/Assets/images/menu/cheesecake.jpg", ShortDescription = "White Chocolate cheesecake served with whipped cream.", LongDescription = "Dark chocolate cookie crumble crust filled with white chocolate cheesecake. Served with your choice of strawberry, peanut butter or maple whiskey caramel sauce. Served with whipped cream, chocolate shavings and fresh mint.", ItemType = itemTypes.Single(t => t.Name == "Dessert"), ItemLabel = itemLabels.Single(l => l.Name == "") },
-                new Item { Name = "Fully Loaded Lime", Price = 7.99M, ImageUrl = "/Assets/images/menu/margarita.jpg", ShortDescription = "Classic Margarita kicked up a notch (1.5 oz.).", LongDescription = "The classic Margarita you love kicked up a notch. Sauza Hornitos Black Barrel Anéjo Tequila double aged in whiskey barrels, hand-shaken with Triple Sec, pure Agave syrup and our fresh lemon and lime Margarita blend (1.5 oz.).", ItemType = itemTypes.Single(t => t.Name == "Beverage"), ItemLabel = itemLabels.Single(l => l.Name == "New") },
+                new Item { Name = "Fully Loaded Lime Margarita", Price = 7.99M, ImageUrl = "/Assets/images/menu/margarita.jpg", ShortDescription = "Classic Margarita kicked up a notch (1.5 oz.).", LongDescription = "The classic Margarita you love kicked up a notch. Sauza Hornitos Black Barrel Anéjo Tequila double aged in whiskey barrels, hand-shaken with Triple Sec, pure Agave syrup and our fresh lemon and lime Margarita blend (1.5 oz.).", ItemType = itemTypes.Single(t => t.Name == "Beverage"), ItemLabel = itemLabels.Single(l => l.Name == "New") },
             }.ForEach(a => context.Items.Add(a));
 
         }

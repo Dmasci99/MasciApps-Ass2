@@ -861,12 +861,13 @@ header {
 ***********************************/
 .interior-header {
 	background: no-repeat center center;
-    background-image: url(/Assets/images/dashboard.jpg);
+    background-image: url(/Assets/images/slide3.jpg);
 	.cover;	
 	height: 210px;
 	position: relative;
 	.box-shadow(0, 0, 8px, @black);
 	.container {
+        text-align: center;
 		height: 100%;
 		h1 {
 			width: 100%;
@@ -876,14 +877,15 @@ header {
 			letter-spacing: 0.07em;
 			text-shadow: 1px 1px 30px @black, 1px 1px @black;
 			position: absolute;
-			left: 20px;
+			left: 0;
 			bottom: 40px;
 			&::after {
 				content: "";
 				position: absolute;
-				top: 110%;
-				left: 0;
+				top: 120%;
+				left: 50%;
 				width: 50%;
+                .translateX;
 				background: @white;
 				height: 3px;
 			}
@@ -1134,13 +1136,12 @@ header {
             font-size: 16px;
             color: @darkerBlue;
             line-height: 1.4em;
-            padding: 0 30px;
+            padding-left: 30px;
             span {
                 display: block;
             }
-            .phone {
-                position: relative;
-                margin: 10px 0;
+            .underline {         
+                position: relative;       
                 padding-bottom: 10px;
                 display: inline-block;
                 &::after {
@@ -1153,10 +1154,39 @@ header {
                     background: @darkerBlue;
                 }
             }
+            .name {
+                font-size: 28px;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                line-height: 1em;
+            }
+            .phone {
+                margin: 10px 0;
+            }
             .social {
+                margin-bottom: 10px;
+                font-weight: bold;
                 .fa {
+                    color: @silver;
                     display: inline-block;
-                    padding: 2px 5px;
+                    background: @darkerBlue;
+                    .round;
+                    margin: 4px;
+                    .trans(all,0.3s);
+                    &.fa-facebook {
+                        padding: 7px 11px;
+                        margin-left: 0;
+                    }
+                    &.fa-twitter {
+                        padding: 7px 8px;
+                    }
+                    &.fa-instagram {
+                        padding: 7px 9px;
+                    }
+                    &:hover {
+                        color: @offWhite;
+                        background: @blueGrey;
+                    }
                 }
             }
             .directions {

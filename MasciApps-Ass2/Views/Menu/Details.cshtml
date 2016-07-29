@@ -2,73 +2,30 @@
 
 @{
     ViewBag.Title = "Details";
+    
 }
 
-<h2>Details</h2>
+<div class="interior-page menu-page" id="details-page">
+    <div class="container">
+        <div class="button"><a href="/Menu#item@(Model.ItemId)"><i class="fa fa-arrow-circle-left"></i> Go Back</a></div>
+        <div class="right">
+            <div class="info">
+                <div class="name">@Model.Name</div>
+                <div class="price">($@(Model.Price))</div>
+                <div class="desc">@Model.LongDescription</div>
+            </div>
+        </div>
+        <div class="left">
+            <div class="image">
+                @if (Model.ItemLabel.Name != "")
+                {
+                    <div class="label">@Model.ItemLabel.Name</div>
+                }
+                <img src="@Model.ImageUrl" alt="@Model.Name" title="@Model.Name" />
+            </div>
+        </div>
 
-<div>
-    <h4>Item</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ItemLabel.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ItemLabel.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ItemType.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ItemType.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ShortDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LongDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LongDescription)
-        </dd>
-
-    </dl>
+        <div class="clear-float"></div><!--clear-float-->
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ItemId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

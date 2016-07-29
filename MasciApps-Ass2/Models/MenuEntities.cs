@@ -14,6 +14,6 @@ namespace MasciApps_Ass2.Models
 
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<ItemType> ItemTypes { get; set; }
-        public virtual DbSet<ItemLabel> ItemLabels { get; set; }
+        public virtual DbSet<ItemLabel> ItemLabels { get; set; } 
     }
 }

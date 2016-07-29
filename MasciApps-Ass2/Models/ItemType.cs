@@ -10,4 +10,4 @@ namespace MasciApps_Ass2.Models
         public virtual int ItemTypeId { get; set; }
         public virtual string Name { get; set; }
     }
-}
+} 

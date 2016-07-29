@@ -13,6 +13,7 @@ namespace MasciApps_Ass2.Controllers
     public class MenuController : Controller
     {
         private MenuEntities db = new MenuEntities();
+        
 
         // GET: Menu
         public ActionResult Index()
@@ -22,7 +23,7 @@ namespace MasciApps_Ass2.Controllers
         }
 
         // GET: Menu/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id = 0)
         {
             if (id == null)
             {

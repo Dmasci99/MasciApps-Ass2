@@ -143,13 +143,36 @@
   font-weight: bold;
   margin-right: 10px;
 }
-/********************************************************
-*														*
-*	    				HOME PAGE 										
-*   													*
-********************************************************/
 /***********************************									
-*			   Header 				
+*			 Menu Global			
+***********************************/
+.menu-page .image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2px;
+}
+.menu-page .image img {
+  max-width: 100%;
+}
+.menu-page .image .label {
+  position: absolute;
+  width: 100px;
+  top: 30px;
+  left: 30px;
+  -webkit-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  -moz-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  -ms-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  -o-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  color: #d4cde5;
+  font-size: 12px;
+  text-align: center;
+  background: #3d4766;
+  padding: 2px 6px;
+}
+/***********************************									
+*	       Menu List Page 				
 ***********************************/
 #menu-page {
   padding: 0;
@@ -197,6 +220,14 @@
 #menu-page .items .row:nth-child(odd) {
   background: #f6f6f6;
 }
+#menu-page .items .row a {
+  color: #0f1f4d;
+}
+#menu-page .items .row a:hover .image .fa {
+  font-size: 22px;
+  opacity: 1;
+  visibility: visible;
+}
 #menu-page .items .item {
   position: relative;
   display: inline-block;
@@ -204,29 +235,24 @@
   margin: 10px 1%;
   vertical-align: top;
 }
-#menu-page .items .item .image {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 2px;
-}
-#menu-page .items .item .image img {
-  max-width: 100%;
-}
-#menu-page .items .item .image .label {
+#menu-page .items .item .image .fa {
+  opacity: 0;
+  visibility: hidden;
   position: absolute;
-  width: 100px;
-  top: 30px;
-  left: 30px;
-  -webkit-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
-  -moz-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
-  -ms-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
-  -o-transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
-  transform: scale(1) translateX(-50%) translateY(-50%) rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
   color: #d4cde5;
-  font-size: 12px;
-  background: #3d4766;
-  padding: 2px 6px;
+  font-size: 2px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 #menu-page .items .item .name {
   font-weight: bold;
@@ -234,8 +260,115 @@
   font-size: 20px;
   padding: 5px 10px;
 }
+#menu-page .items .item .name .price {
+  font-weight: normal;
+  font-size: 14px;
+}
 #menu-page .items .item .desc {
   padding: 0 10px;
+}
+/***********************************									
+*	      Menu Details Page 				
+***********************************/
+#details-page {
+  padding-top: 20px;
+}
+#details-page .button {
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+}
+#details-page .button a {
+  font-size: 12px;
+  color: #ffffff;
+  padding: 5px 10px;
+  background: #3d4766;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#details-page .button a:hover {
+  background: #505d86;
+}
+#details-page .right {
+  float: right;
+  width: 40%;
+}
+#details-page .right .info {
+  font-size: 16px;
+  color: #0f1f4d;
+  line-height: 1.4em;
+  padding-left: 30px;
+}
+#details-page .right .info > div {
+  display: block;
+}
+#details-page .right .info .name {
+  position: relative;
+  font-size: 26px;
+  font-variant: small-caps;
+}
+#details-page .right .info .price {
+  margin-bottom: 10px;
+}
+#details-page .left {
+  float: left;
+  width: 60%;
+}
+/********************************************************
+*														*
+*	    			   RESPONSIVE
+*   													*
+********************************************************/
+@media screen and (max-width: 850px) {
+  /***********************************									
+    *	      Menu Details Page 				
+    ***********************************/
+  #details-page .right {
+    float: none;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #details-page .right .info {
+    font-size: 18px;
+    color: #0f1f4d;
+    line-height: 1.4em;
+    padding: 0;
+  }
+  #details-page .right .info .price {
+    margin: 5px 0;
+  }
+  #details-page .left {
+    float: none;
+    width: 100%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 750px) {
+  /***********************************									
+    *	       Menu List Page 				
+    ***********************************/
+  #menu-page .items .row {
+    padding: 25px 0;
+  }
+  #menu-page .items .row h2 {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+  #menu-page .items .item {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 10px auto 30px auto;
+  }
 }
 /****************************************************************************************************
 *																									*
@@ -1026,7 +1159,7 @@ header #moby-button:hover .fa {
 ***********************************/
 .interior-header {
   background: no-repeat center center;
-  background-image: url(/Assets/images/dashboard.jpg);
+  background-image: url(/Assets/images/slide3.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -ms-background-size: cover;
@@ -1041,6 +1174,7 @@ header #moby-button:hover .fa {
   box-shadow: 0 0 8px #000000;
 }
 .interior-header .container {
+  text-align: center;
   height: 100%;
 }
 .interior-header .container h1 {
@@ -1051,15 +1185,20 @@ header #moby-button:hover .fa {
   letter-spacing: 0.07em;
   text-shadow: 1px 1px 30px #000000, 1px 1px #000000;
   position: absolute;
-  left: 20px;
+  left: 0;
   bottom: 40px;
 }
 .interior-header .container h1::after {
   content: "";
   position: absolute;
-  top: 110%;
-  left: 0;
+  top: 120%;
+  left: 50%;
   width: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
   background: #ffffff;
   height: 3px;
 }
@@ -1501,18 +1640,17 @@ header #moby-button:hover .fa {
   font-size: 16px;
   color: #0f1f4d;
   line-height: 1.4em;
-  padding: 0 30px;
+  padding-left: 30px;
 }
 #contact-page .right .info span {
   display: block;
 }
-#contact-page .right .info .phone {
+#contact-page .right .info .underline {
   position: relative;
-  margin: 10px 0;
   padding-bottom: 10px;
   display: inline-block;
 }
-#contact-page .right .info .phone::after {
+#contact-page .right .info .underline::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -1521,9 +1659,48 @@ header #moby-button:hover .fa {
   height: 2px;
   background: #0f1f4d;
 }
+#contact-page .right .info .name {
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1em;
+}
+#contact-page .right .info .phone {
+  margin: 10px 0;
+}
+#contact-page .right .info .social {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
 #contact-page .right .info .social .fa {
+  color: #d4cde5;
   display: inline-block;
-  padding: 2px 5px;
+  background: #0f1f4d;
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  -ms-border-radius: 9999px;
+  -o-border-radius: 9999px;
+  border-radius: 9999px;
+  margin: 4px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#contact-page .right .info .social .fa.fa-facebook {
+  padding: 7px 11px;
+  margin-left: 0;
+}
+#contact-page .right .info .social .fa.fa-twitter {
+  padding: 7px 8px;
+}
+#contact-page .right .info .social .fa.fa-instagram {
+  padding: 7px 9px;
+}
+#contact-page .right .info .social .fa:hover {
+  color: #f1f1f1;
+  background: #3d4766;
 }
 #contact-page .right .info .directions {
   color: #000000;
@@ -2551,6 +2728,9 @@ footer .copyright p {
   /***********************************									
 	*			Contact Page 				
 	***********************************/
+  #contact-page {
+    padding-top: 30px;
+  }
   #contact-page .left {
     float: none;
     width: 100%;

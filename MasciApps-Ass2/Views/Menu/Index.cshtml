@@ -2,76 +2,46 @@
 @model IEnumerable<Item>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Menu";
+    List<ItemType> types = new MenuEntities().ItemTypes.ToList();
 }
-<div class="interior-page" id="menu-page">
+@helper printItems(ItemType itemType)
+{
+    <div class="row @itemType.Name.ToLower()">
+        <h2>@(itemType.Name)s</h2>
+        <div class="container">
+            @foreach (var item in Model.Where(t => t.ItemType.Name == itemType.Name))
+            {
+                <div class="item @(itemType.Name)s" id="item@(item.ItemId)">
+                    <a href="/Menu/Details/@item.ItemId">
+                        <div class="image">
+                            @if (item.ItemLabel.Name != "")
+                            {
+                                <div class="label">@item.ItemLabel.Name</div>
+                            }
+                            <i class="fa fa-share-square-o"></i>
+                            <img src="@item.ImageUrl" alt="@item.Name" title="@item.Name" />
+                        </div>
+                        <div class="name">@item.Name <span class="price">($@(item.Price))</span></div>                        
+                        <div class="desc">@item.ShortDescription</div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+}
+<div class="interior-page menu-page" id="menu-page">
     <div class="items">
-        <div class="row beverages">
-            <h2>Beverages</h2>
-            <div class="container">
-                @foreach (var item in Model.Where(t => t.ItemType.Name == "Beverage"))
-                {
-                    <div class="item beverage">
-                        <div class="image">
-                            <div class="label">@item.ItemLabel.Name</div>
-                            <img src="@item.ImageUrl" alt="@item.Name" title="@item.Name" />
-                        </div>
-                        <div class="name">@item.Name</div>
-                        <div class="desc">@item.ShortDescription</div>
-                    </div>
-                }
-            </div>
-        </div>
+        <!-- Manually determine order of items -->
+        @printItems(types.Single(t => t.Name == "Beverage"))
+        @printItems(types.Single(t => t.Name == "Appetizer"))
+        @printItems(types.Single(t => t.Name == "Main Course"))
+        @printItems(types.Single(t => t.Name == "Dessert"))
 
-        <div class="row appetizers">
-            <h2>Appetizers</h2>
-            <div class="container">
-                @foreach (var item in Model.Where(t => t.ItemType.Name == "Appetizer"))
-                {
-                    <div class="item appetizer">
-                        <div class="image">
-                            <div class="label">@item.ItemLabel.Name</div>
-                            <img src="@item.ImageUrl" alt="@item.Name" title="@item.Name" />
-                        </div>
-                        <div class="name">@item.Name</div>
-                        <div class="desc">@item.ShortDescription</div>
-                    </div>
-                }
-            </div>
-        </div>
-
-        <div class="row maincourses">
-            <h2>Main Courses</h2>
-            <div class="container">
-                @foreach (var item in Model.Where(t => t.ItemType.Name == "Main Course"))
-                {
-                    <div class="item maincourse">
-                        <div class="image">
-                            <div class="label">@item.ItemLabel.Name</div>
-                            <img src="@item.ImageUrl" alt="@item.Name" title="@item.Name" />
-                        </div>
-                        <div class="name">@item.Name</div>
-                        <div class="desc">@item.ShortDescription</div>
-                    </div>
-                }
-            </div>
-        </div>
-
-        <div class="row desserts">
-            <h2>Desserts</h2>
-            <div class="container">
-                @foreach (var item in Model.Where(t => t.ItemType.Name == "Dessert"))
-                {
-                    <div class="item dessert">
-                        <div class="image">
-                            <div class="label">@item.ItemLabel.Name</div>
-                            <img src="@item.ImageUrl" alt="@item.Name" title="@item.Name" />
-                        </div>
-                        <div class="name">@item.Name</div>
-                        <div class="desc">@item.ShortDescription</div>
-                    </div>
-                }
-            </div>
-        </div>
+        <!-- DB determines order of items -->
+        @*@foreach (var type in types)
+            {
+                @printItems(type);
+            }*@
     </div><!-- items -->
 </div><!-- interior-page -->

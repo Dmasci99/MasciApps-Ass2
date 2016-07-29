@@ -13,7 +13,7 @@ namespace MasciApps_Ass2.Models
         public virtual string Name { get; set; }
         public virtual decimal Price { get; set; }
         public virtual string ImageUrl { get; set; }
-        public virtual string ShortDescription { get; set; }
+        public virtual string ShortDescription { get; set; } 
         public virtual string LongDescription { get; set; }
         public virtual ItemType ItemType { get; set; }
         public virtual ItemLabel ItemLabel { get; set; }
