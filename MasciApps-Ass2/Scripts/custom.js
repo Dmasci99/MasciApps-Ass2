@@ -3,13 +3,13 @@
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
-* Purpose : Assignment 1 - ASP.NET Portfolio
-* Website Name : DanMasci.azurewebsites.net
+* Purpose : Assignment 2 - ASP.NET Portfolio
+* Website Name : MasciApps-Ass2.azurewebsites.net
 */
 
 /**
 * The following file is the "MASTER" Javascript file that encompasses JQuery. It includes
-* all my custom jQuery functionality that is used across my portfolio.
+* all my custom jQuery functionality that is used across my application.
 */
 
 jQuery(document).ready(function ($) {
