@@ -21,9 +21,9 @@ jQuery(document).ready(function ($) {
         mobyTrigger: $('#moby-button'), // Button that will trigger the Moby menu to open
     });
 
-    // $('#top-nav').moby({
-    // 	insertBefore: "<div class='logo'><a href='http://doug.geekpower.ca/adlogic/briarwood-2015/'><img src='http://doug.geekpower.ca/adlogic/briarwood-2015/images/header-logo.png' alt='Briarwood Homes (Replace Link)' title='Replace Link'></a></div>",
-    // });
+     $('#top-nav').moby({
+     	//insertBefore: "<div class='logo'><img src='/Assets/images/logo.png' alt='MasciApps'></a></div>",
+     });
 
     /*************************************************
 	*				CONTENT CHOOSER
