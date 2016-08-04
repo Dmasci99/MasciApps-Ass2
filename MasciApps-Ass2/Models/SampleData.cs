@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace MasciApps_Ass2.Models
 {
-    public class SampleData : DropCreateDatabaseAlways<MenuEntities>
+    public class SampleData : DropCreateDatabaseIfModelChanges<MenuEntities>
     {
         protected override void Seed(MenuEntities context)
         {
